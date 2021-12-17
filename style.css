@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  background-image: url(images/nyan.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#color-palette{
+margin-left: auto;
+margin-right: auto;
+}
+
+#title {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 36px;
+  color: rgb(212, 192, 192);
+  text-align: center;
+}
+
+.color, .selected{
+  width: 30px;
+  height: 30px;
+  border: solid 1px black;
+}
+
+.pixel {
+  width: 40px;
+  height: 40px;
+  border: solid 1px black;
+  background-color: white;
+  padding: 5px;
+}
+
+#pixel-board {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+#clear-board {
+  margin-left: 41.5%;
+}
+
+footer {
+  margin-top: 10%;
+  margin-left: 10%;
+  color: rgb(219, 189, 195);
+}
