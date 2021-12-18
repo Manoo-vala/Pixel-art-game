@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url(images/nyan.gif);
+  background-image: url('images/nyan.gif');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -22,7 +22,7 @@ body {
   text-align: center;
 }
 
-.color, .selected {
+.color , .selected {
   width: 30px;
   height: 30px;
   border: solid 1px black;
