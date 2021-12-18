@@ -1,20 +1,38 @@
 // =================== Variáveis globais ===================
 const firstColor = document.querySelector('.selected');
-// const otherColors = document.querySelectorAll('.color');
 const allColors = document.getElementsByClassName('color');
 const pixels = document.getElementsByClassName('pixel');
-const pixelPallet = document.getElementById('color-palette');
+const clearButton = document.getElementById('clear-board');
+const pixelPallet = document.getElementById('pixel-board');
+const rows = document.getElementsByClassName('row');
 
 // =================== end ===================
 
 // =================== Funções construtivas ===================
-// function excludePixelTable() {
+function excludePixelTable() {
+  pixelPallet.innerHTML = '';
+}
 
-// }
+function generatePixelRow(numberOfRows) {
+  excludePixelTable();
+  let tr;
+  for (let i = 0; i < numberOfRows; i += 1) {
+    tr = document.createElement('tr');
+    tr.classList.add('row');
+    pixelPallet.appendChild(tr);
+  }
+}
 
-// function generatePixelTable() {
-
-// }
+function generatePixelColumn(numberOfColumns) {
+  let td;
+  for (let i = 0; i < numberOfColumns; i += 1) {
+    for (let a = 0; a < numberOfColumns; a += 1) {
+      td = document.createElement('td');
+      td.classList.add('pixel');
+      rows[a].appendChild(td);
+    }
+  }
+}
 // =================== end ===================
 
 // =================== Funções de cores ===================
@@ -29,13 +47,13 @@ function rgbRadom() {
 
 function colorsTable() {
   firstColor.style.backgroundColor = 'black';
-  for (let index = 1; index < 4; index += 1) {
+  for (let index = 1; index < allColors.length; index += 1) {
     allColors[index].style.backgroundColor = rgbRadom();
   }
 }
-colorsTable();
 // =================== end ===================
 
+// =================== Funções interativas ===================
 function removeSelected() {
   for (let i = 0; i < allColors.length; i += 1) {
     if (allColors[i].classList.contains('selected')) {
@@ -44,11 +62,13 @@ function removeSelected() {
   }
 }
 
-for (let i = 0; i < allColors.length; i += 1) {
-  allColors[i].addEventListener('click', () => {
-    removeSelected();
-    allColors[i].classList.add('selected');
-  });
+function choosingOtherColor() {
+  for (let i = 0; i < allColors.length; i += 1) {
+    allColors[i].addEventListener('click', () => {
+      removeSelected();
+      allColors[i].classList.add('selected');
+    });
+  }
 }
 
 function extractBackground() {
@@ -58,13 +78,14 @@ function extractBackground() {
     }
   }
 }
-for (let i = 0; i < pixels.length; i += 1) {
-  pixels[i].addEventListener('click', () => {
-    pixels[i].style.backgroundColor = extractBackground();
-  });
+function paintPixel() {
+  for (let i = 0; i < pixels.length; i += 1) {
+    pixels[i].addEventListener('click', () => {
+      pixels[i].style.backgroundColor = extractBackground();
+    });
+  }
 }
 
-const clearButton = document.getElementById('clear-board');
 function clearPixels() {
   for (let i = 0; i < pixels.length; i += 1) {
     clearButton.addEventListener('click', () => {
@@ -72,4 +93,14 @@ function clearPixels() {
     });
   }
 }
-clearPixels();
+// =================== end ===================
+
+// Execução
+window.onload = () => {
+  generatePixelRow(5);
+  generatePixelColumn(5);
+  clearPixels();
+  paintPixel();
+  choosingOtherColor();
+  colorsTable();
+};
