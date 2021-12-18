@@ -4,6 +4,7 @@ const allColors = document.getElementsByClassName('color');
 const pixels = document.getElementsByClassName('pixel');
 const clearButton = document.getElementById('clear-board');
 const pixelPallet = document.getElementById('pixel-board');
+const rows = document.getElementsByClassName('row');
 
 // =================== end ===================
 
@@ -12,9 +13,26 @@ function excludePixelTable() {
   pixelPallet.innerHTML = '';
 }
 
-// function generatePixelTable() {
+function generatePixelRow(numberOfRows) {
+  excludePixelTable();
+  let tr;
+  for (let i = 0; i < numberOfRows; i += 1) {
+    tr = document.createElement('tr');
+    tr.classList.add('row');
+    pixelPallet.appendChild(tr);
+  }
+}
 
-// }
+function generatePixelColumn(numberOfColumns) {
+  let td;
+  for (let i = 0; i < numberOfColumns; i += 1) {
+    for (let a = 0; a < numberOfColumns; a += 1) {
+      td = document.createElement('td');
+      td.classList.add('pixel');
+      rows[a].appendChild(td);
+    }
+  }
+}
 // =================== end ===================
 
 // =================== Funções de cores ===================
@@ -79,9 +97,10 @@ function clearPixels() {
 
 // Execução
 window.onload = () => {
+  generatePixelRow(5);
+  generatePixelColumn(5);
   clearPixels();
   paintPixel();
   choosingOtherColor();
   colorsTable();
-  excludePixelTable();
 };
