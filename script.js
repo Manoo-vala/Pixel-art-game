@@ -7,6 +7,7 @@ const pixelPallet = document.getElementById('pixel-board');
 const rows = document.getElementsByClassName('row');
 const inputForm = document.getElementById('board-size');
 const vqvButton = document.getElementById('generate-board');
+const sortColors = document.getElementById('sort-colors');
 
 // =================== end ===================
 
@@ -68,6 +69,12 @@ function colorsTable() {
     allColors[index].style.backgroundColor = rgbRadom();
   }
 }
+
+function sortNewColors() {
+  sortColors.addEventListener('click', () => {
+    colorsTable();
+  });
+}
 // =================== end ===================
 
 // =================== Funções interativas ===================
@@ -120,5 +127,7 @@ window.onload = () => {
   paintPixel();
   choosingOtherColor();
   colorsTable();
+  sortNewColors();
   clickVQV();
+  console.log('Boas-vindas ao meu dominio :D!');
 };

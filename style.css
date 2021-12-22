@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  font-family:'Times New Roman', Times, serif;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 
 #title {
   font-family: DotGothic16, sans-serif;
-  font-size: 36px;
+  font-size: 42px;
   color: rgb(212, 192, 192);
   text-align: center;
 }
@@ -42,8 +43,21 @@ body {
   border-collapse: collapse;
 }
 
-#clear-board {
-  margin-left: 41.5%;
+.sort-color , .form-container {
+  text-align: center;
+}
+
+.button-container {
+  padding: 5px;
+  margin: 4px;
+  border-radius: 5px 40px 20px 40px;
+  background-color: #f8fc17;
+}
+
+.input-number {
+  padding: 4px;
+  background-color: #f8fc17;
+  border-radius: 6px;
 }
 
 footer {
