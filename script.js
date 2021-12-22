@@ -5,6 +5,8 @@ const pixels = document.getElementsByClassName('pixel');
 const clearButton = document.getElementById('clear-board');
 const pixelPallet = document.getElementById('pixel-board');
 const rows = document.getElementsByClassName('row');
+const inputForm = document.getElementById('board-size');
+const vqvButton = document.getElementById('generate-board');
 
 // =================== end ===================
 
@@ -33,6 +35,21 @@ function generatePixelColumn(numberOfColumns) {
     }
   }
 }
+// =================== end ===================
+
+// =================== Funções dinâmicas ===================
+function clickVQV() {
+  vqvButton.addEventListener('click', () => {
+    switch (inputForm.value) {
+    case '':
+      return window.alert('Board inválido!');
+    default:
+      generatePixelRow(inputForm.value);
+      generatePixelColumn(inputForm.value);
+    }
+  });
+}
+
 // =================== end ===================
 
 // =================== Funções de cores ===================
@@ -103,4 +120,5 @@ window.onload = () => {
   paintPixel();
   choosingOtherColor();
   colorsTable();
+  clickVQV();
 };
