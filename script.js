@@ -48,6 +48,7 @@ function clickVQV() {
       generatePixelRow(inputForm.value);
       generatePixelColumn(inputForm.value);
       paintPixel();
+      inputForm.value = '';
     }
   });
 }
