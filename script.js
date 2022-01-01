@@ -47,6 +47,7 @@ function clickVQV() {
     default:
       generatePixelRow(inputForm.value);
       generatePixelColumn(inputForm.value);
+      paintPixel();
     }
   });
 }
