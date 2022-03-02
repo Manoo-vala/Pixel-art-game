@@ -20,6 +20,7 @@ function generatePixelRow(numberOfRows) {
   excludePixelTable();
   let tr;
   for (let i = 0; i < numberOfRows; i += 1) {
+    clearPixels();
     tr = document.createElement('tr');
     tr.classList.add('row');
     pixelPallet.appendChild(tr);
@@ -30,6 +31,7 @@ function generatePixelColumn(numberOfColumns) {
   let td;
   for (let i = 0; i < numberOfColumns; i += 1) {
     for (let a = 0; a < numberOfColumns; a += 1) {
+      clearPixels();
       td = document.createElement('td');
       td.classList.add('pixel');
       rows[a].appendChild(td);
